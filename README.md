@@ -59,23 +59,14 @@ Finally the metrics and results of training and evaluation can be viewed by laun
 ```
 python -m tensorboard.main --logdir experiments/reference/
 ```
-## Submission Template
+## Dataset Analysis 
 
-### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+Dataset analysis is done in order to observe the nature of the dataset, so that such an observation can be included while training the network. The data analysis in this project is done in the program 'Exploratory Data Analysis.ipynb' .In this program training image data is loaded and then randomly shuffled and out of it 10 images are selected and finally displayed with ground truth bounding boxes, which are color coded as per the class. By viewing the images one can confirm that the input pipeline for the network is functioning properly and also can observe the different features of the image like lighting, saturation, contrast, occlutions etc,. Below is one such output obtained from the program.
 
-### Set up
-This section should contain a brief description of the steps to follow to run the code for this repository.
+![img](https://user-images.githubusercontent.com/49077871/191368900-c5a64831-66f2-463d-9be5-c95bc053716e.png)
 
-### Dataset
-#### Dataset analysis
-This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
-#### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+## Cross Validation
 
-### Training
-#### Reference experiment
-This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
+Cross-validation is a statistical method used to estimate the performance (or accuracy) of machine and deep learning models. It is used to protect against overfitting in a predictive model, particularly in a case where the amount of data may be limited. In order to evaluate our model on the go while training, at the end of the each epoch a validation task is executed. For this purspose the dataset is split into three parts train, test and val. Val contains data that are seen by the network during the training so with evaluating the network wiuth such data one can infer how good the network is regularized. Th popular data split strategy is 7:2:1 or 8:1:1. In my  case I have used 7:2:1 because during validation a higher vareity of data ensures better regulariztion.
 
-#### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+## 
