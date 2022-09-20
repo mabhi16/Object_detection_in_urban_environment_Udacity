@@ -1,5 +1,9 @@
 # Object Detection in an Urban Environment
 
+## Project overview
+
+The main problem statement of this project is to achieve 2D object detection in an urban environment. Objects under consideration for detection are vehicles, pedestrians, and cyclists. Object detection plays an important part in the self-driving car system as it mainly helps in collision avoidance and maneuver planning.
+
 ## Data
 
 For this project, we will be using data from the [Waymo Open dataset](https://waymo.com/open/).
