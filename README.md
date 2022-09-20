@@ -55,7 +55,7 @@ Once the Training is done, evaluation process can be implemeted using below inst
 ```
 python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/
 ```
-Finally the metrics and results of training and evaluation can be viewed with the help of tensorboard by launching tensorboard as below
+Finally the metrics and results of training and evaluation can be viewed by launching tensorboard as below
 ```
 python -m tensorboard.main --logdir experiments/reference/
 ```
