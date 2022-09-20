@@ -22,7 +22,7 @@ The data you will use for training, validation and testing is organized as follo
     - val: contain the val data (empty to start)
     - test - contains 3 files to test your model and create inference videos
 
-## Setup
+### Setup
 
 Tf Object Detection API relies on config files. The config that we will use for this project is pipeline.config, which is the config for a SSD Resnet 50 640x640 model. 
 Initialy download the pretrained model and move it to /home/workspace/experiments/pretrained_model/. 
