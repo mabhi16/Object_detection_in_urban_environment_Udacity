@@ -37,7 +37,7 @@ tar -xvzf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
 
 rm -rf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
 ```
-later We need to edit the config files to change the location of the training and validation files, as well as the location of the label_map file, pretrained weights. We also need to adjust the batch size. To do so, run the following:
+later, we need to edit the config files to change the location of the training and validation files, as well as the location of the label_map file, pretrained weights. We also need to adjust the batch size. To do so, run the following:
 ```
 cd /home/workspace/
 
@@ -50,6 +50,14 @@ mv pipeline_new.config /home/workspace/experiements/reference/
 Now we can start training process by executing below instruction
 ```
 python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config
+```
+Once the Training is done, evaluation process can be implemeted using below instruction 
+```
+python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/
+```
+Finally the metrics and results of training and evaluation can be viewed with the help of tensorboard by launching tensorboard as below
+```
+python -m tensorboard.main --logdir experiments/reference/
 ```
 ## Submission Template
 
