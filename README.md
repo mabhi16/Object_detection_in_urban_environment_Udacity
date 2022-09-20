@@ -22,13 +22,13 @@ The data you will use for training, validation and testing is organized as follo
     - val: contain the val data (empty to start)
     - test - contains 3 files to test your model and create inference videos
 ```
-### Setup
+## Setup
 
 Tf Object Detection API relies on config files. The config that we will use for this project is pipeline.config, which is the config for a SSD Resnet 50 640x640 model. 
 Initialy download the pretrained model and move it to /home/workspace/experiments/pretrained_model/. 
 
 which can be achieved by by given instruction below:
-
+```
 cd /home/workspace/experiments/pretrained_model/
 
 wget http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
@@ -36,21 +36,21 @@ wget http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_res
 tar -xvzf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
 
 rm -rf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
-
+```
 later We need to edit the config files to change the location of the training and validation files, as well as the location of the label_map file, pretrained weights. We also need to adjust the batch size. To do so, run the following:
-
+```
 cd /home/workspace/
 
 python edit_config.py --train_dir /home/workspace/data/train/ --eval_dir /home/workspace/data/val/ --batch_size 2 --checkpoint /home/workspace/experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0 --label_map /home/workspace/experiments/label_map.pbtxt
-
+```
 A new config file called pipeline_new.config will be created in the /home/workspace/ directory. Move this file to the /home/workspace/experiments/reference/ directory using 
-
+```
 mv pipeline_new.config /home/workspace/experiements/reference/
-
+```
 Now we can start training process by executing below instruction
-
+```
 python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config
-
+```
 ## Submission Template
 
 ### Project overview
