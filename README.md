@@ -69,4 +69,29 @@ Dataset analysis is done in order to observe the nature of the dataset, so that 
 
 Cross-validation is a statistical method used to estimate the performance (or accuracy) of machine and deep learning models. It is used to protect against overfitting in a predictive model, particularly in a case where the amount of data may be limited. In order to evaluate our model on the go while training, at the end of the each epoch a validation task is executed. For this purspose the dataset is split into three parts train, test and val. Val contains data that are seen by the network during the training so with evaluating the network wiuth such data one can infer how good the network is regularized. Th popular data split strategy is 7:2:1 or 8:1:1. In my  case I have used 7:2:1 because during validation a higher vareity of data ensures better regulariztion.
 
-## 
+## Training 
+
+Reference Experiment: Below tensorboard indicate the results of the reference experiment, config file - pipeline_ref.config can be found in experiments/reference/ folder.
+
+![metric_loss_ref](https://user-images.githubusercontent.com/49077871/191373972-5d9e9eb1-7bcd-4583-81dd-97cbb782a411.png)
+
+Training metric for the reference experiment can be found in the text file metric.txt
+
+It can be observed from the graph the loss is very high, this is because initial learning rate of the mometum optimizer (0.04) is quite high so when the network starts learning gradient descent happens in the larger steps and due to which the instead of converging to global minima the descent starts to oscillate between the either side of the gradient curve hence the network becomes incapable of learning anything from training and same thing is refelected in the loss.
+
+Improved experiment: Below tensorboard indicate the results of the improvement from reference experiment, config file - pipeline_new.config can be found in experiments/reference/ folder.
+
+![metric_loss_aug](https://user-images.githubusercontent.com/49077871/191378114-c16dce4b-e223-4053-91fd-b757a7518650.png)
+
+Training metric for the improvement from reference experiment can be found in the text file metric.txt
+
+To improve the training process initially, I changed the from momentum optimizer to adam optimizer and reduced initial learning rate to 0.0001, along with the cosine decay for every 200 steps provides a sufficient level of learning rate for gradient descent to smoothly reach close to global minima hence network learns to generate appropriate anchor boxes for the given feature, since I observed that there were different lighting condition in the dataset I also have included few additional augmentations namely : random_rgb_to_gray, random_distort_color, random_adjust_brightness,  random_adjust_contrast, random_adjust_hue, random_adjust_saturation. These augmentations additionally help in further reduction of training and validation loss, which is reflected in the metrics. below there also a inference video of the trained network. These augmentation which are used in improving the training of network are visualized in the program Explore augmentations.ipynb and couple of sample is as given below 
+
+![Aug_img_1](https://user-images.githubusercontent.com/49077871/192107590-ea4ace9a-04c0-4720-aef0-4a72db567fef.png)
+
+![Aug_img_2](https://user-images.githubusercontent.com/49077871/192107600-fee66e34-cf8a-4b59-8809-4432acc9da95.png)
+
+https://user-images.githubusercontent.com/49077871/191381199-8a6f2b00-d6b1-4e42-83bf-eb3a838309c1.mp4
+
+
+
