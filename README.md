@@ -65,6 +65,10 @@ Dataset analysis is done in order to observe the nature of the dataset, so that 
 
 ![img](https://user-images.githubusercontent.com/49077871/191368900-c5a64831-66f2-463d-9be5-c95bc053716e.png)
 
+Since We have viewed only few annotated images, which doesn't give much information about the entire dataset but to examine the variablity of the data I have implemented a program that gives the histogram of annotation per class, the result of which is shown below. As this bar graph shows the vehicle class dominates the other classes by a large number, may due to this bias, there are few false positive detections realted to this class in some inference videos.
+
+![Add_eda](https://user-images.githubusercontent.com/49077871/192113199-7b0992e7-57ce-4546-8658-bf3c24bdcd50.png)
+
 ## Cross Validation
 
 Cross-validation is a statistical method used to estimate the performance (or accuracy) of machine and deep learning models. It is used to protect against overfitting in a predictive model, particularly in a case where the amount of data may be limited. In order to evaluate our model on the go while training, at the end of the each epoch a validation task is executed. For this purspose the dataset is split into three parts train, test and val. Val contains data that are seen by the network during the training so with evaluating the network wiuth such data one can infer how good the network is regularized. Th popular data split strategy is 7:2:1 or 8:1:1. In my  case I have used 7:2:1 because during validation a higher vareity of data ensures better regulariztion.
