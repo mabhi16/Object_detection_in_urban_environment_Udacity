@@ -85,7 +85,11 @@ Improved experiment: Below tensorboard indicate the results of the improvement f
 
 Training metric for the improvement from reference experiment can be found in the text file metric.txt
 
-To improve the training process initially, I changed the from momentum optimizer to adam optimizer and reduced initial learning rate to 0.0001, along with the cosine decay for every 200 steps provides a sufficient level of learning rate for gradient descent to smoothly reach close to global minima hence network learns to generate appropriate anchor boxes for the given feature, since I observed that there were different lighting condition in the dataset I also have included few additional augmentations namely : random_rgb_to_gray, random_distort_color, random_adjust_brightness,  random_adjust_contrast, random_adjust_hue, random_adjust_saturation. These augmentations additionally help in further reduction of training and validation loss, which is reflected in the metrics. below there also a inference video of the trained network. 
+To improve the training process initially, I changed the from momentum optimizer to adam optimizer and reduced initial learning rate to 0.0001, along with the cosine decay for every 200 steps provides a sufficient level of learning rate for gradient descent to smoothly reach close to global minima hence network learns to generate appropriate anchor boxes for the given feature, since I observed that there were different lighting condition in the dataset I also have included few additional augmentations namely : random_rgb_to_gray, random_distort_color, random_adjust_brightness,  random_adjust_contrast, random_adjust_hue, random_adjust_saturation. These augmentations additionally help in further reduction of training and validation loss, which is reflected in the metrics. below there also a inference video of the trained network. These augmentation which are used in improving the training of network are visualized in the program Explore augmentations.ipynb and couple of sample is as given below 
+
+![Aug_img_1](https://user-images.githubusercontent.com/49077871/192107590-ea4ace9a-04c0-4720-aef0-4a72db567fef.png)
+
+![Aug_img_2](https://user-images.githubusercontent.com/49077871/192107600-fee66e34-cf8a-4b59-8809-4432acc9da95.png)
 
 https://user-images.githubusercontent.com/49077871/191381199-8a6f2b00-d6b1-4e42-83bf-eb3a838309c1.mp4
 
